@@ -1,0 +1,9 @@
+CREATE DB musicservice
+CREATE TABLE IF NOT EXISTS genre (genre_id SERIAL PRIMARY KEY,genre_name VARCHAR(60) NOT NULL);
+CREATE TABLE IF NOT EXISTS singer (singer_id SERIAL PRIMARY KEY,singer_name VARCHAR(100) NOT NULL);
+CREATE TABLE IF NOT EXISTS album (album_id SERIAL PRIMARY KEY,album_name VARCHAR(100) NOT NULL, album_year CHAR(4) NOT NULL);
+CREATE TABLE IF NOT EXISTS track (track_id SERIAL PRIMARY KEY, track_name VARCHAR(100) NOT NULL, track_length VARCHAR(20), album_id INTEGER NOT NULL REFERENCES album(album_id));
+CREATE TABLE IF NOT EXISTS track_col (col_id SERIAL PRIMARY KEY, col_name VARCHAR(100 NOT NULL, col_year CHAR(4) NOT NULL);
+CREATE TABLE IF NOT EXISTS AlbumSinger (id SERIAL PRIMARY KEY, album_id INTEGER REFERENCES album(album_id), singer_id INTEGER REFERENCES singer(singer_id));
+CREATE TABLE IF NOT EXISTS SingerGenre (id SERIAL PRIMARY KEY, singer_id INTEGER REFERENCES singer(singer_id), genre_id INTEGER REFERENCES genre(genre_id));
+CREATE TABLE IF NOT EXISTS TrackCollection (id SERIAL PRIMARY KEY, track_id INTEGER REFERENCES track(track_id), coll_id INTEGER REFERENCES track_col(col_id));
